@@ -51,10 +51,22 @@ def recur_fibonacci(n):
     else:
         return (recur_fibonacci(n-1) + recur_fibonacci(n-2))
 
+def recur_euclid(x,y):
 
-    
+    if y <= x and x % y == 0:
+        return y
+
+    else:
+        return recur_euclid(y, x % y)
+
+def recur_product(a,b):
+
+    if b > 0:
+        return a + recur_product(a,b-1)
+
+    elif b == 0:
+        return 0
        
-    
 def main():
     
     which_math = input('What function do you want to use? \n Enter a 1 to find the sum of digits, enter A 2 to find facotrial, enter 3 to find summation, enter 4 for powers, enter 5 for fibonacci')
@@ -154,7 +166,24 @@ def main():
             print('the', fib_number,' term is',  recur_fibonacci(fib_number), 'in the fibonacci sequence.')
             
         
-            
+    elif which_math == 6:
+        x = input('What is the first number of the pair? ')
+        x = int(x)
+
+        y = input('What is the second number of the pair? ')
+        y = int(y)
+
+        print(recur_euclid(x,y))
+
+    elif which_math == 8:
+
+        a = input("What is the first number?")
+        a = int(a)
+
+        b = input("What is the first number?")
+        b = int(b)
+
+        print(recur_product(a,b))
             
        
 if __name__ == '__main__':
