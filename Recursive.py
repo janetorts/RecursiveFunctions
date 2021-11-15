@@ -151,16 +151,20 @@ output is 6
     
     else:
         return recur_GCD(y, x % y)
-    
-def recur_euclid(x,y):
-
-    if y <= x and x % y == 0:
-        return y
-
-    else:
-        return recur_euclid(y, x % y)
 
 def recur_product(a,b):
+
+    """
+               Summary and Description of Function:
+               Finds the product of two numbers
+
+               Parameters:
+               a (int): The first number inputted by the user
+               b (int): The second number inputted by the user
+
+               Returns:
+               a (int): The first number multiplied by the second
+        """
 
     if b > 0:
         return a + recur_product(a,b-1)
@@ -168,14 +172,6 @@ def recur_product(a,b):
     elif b == 0:
         return 0
        
-    
-def recur_compound_interest_balance(p, r, t):
-    if t == 0:
-        return p
-    
-    elif t > 0:
-        return ((1 + r) * recur_compound_interest_balance(p,r,t-1))
-
 def recur_sum_in_range(x, y):
     if x == y : 
         return y 
@@ -199,6 +195,23 @@ def reverse(the_list):
         print(temp, end='')
         
         return reverse(the_list)
+    
+def product_of_digit(n):
+
+    """
+           Summary and Description of Function:
+           Finds the product of the digits of a number
+
+           Parameters:
+           n (int): The number inputted by the user
+
+           Returns:
+           n (int): The number multiplied in the function
+    """
+    if n < 10:
+        return n
+    else:
+        return n % 10 * product_of_digit(n // 10)
 
 
 def main():
