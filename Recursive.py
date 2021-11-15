@@ -1,4 +1,29 @@
+'''
+Created on Oct 26, 2021
+
+@author: jtortorella23
+'''
+
+
+output = ''
+
 def sum_of_digit(n):
+''' 
+Description of function:
+This function finds the sum of the digits of a number. 
+
+Input parameters:
+takes 1 number, n (int)
+
+returns:
+int
+
+example:
+n = 33
+output is 6 
+'''
+
+
     if n< 10:
         return n
     else:
@@ -9,7 +34,20 @@ def sum_of_digit(n):
 
 
 def recur_factorial(n): 
-         
+''' 
+Description of function:
+This function finds the factorial of a number
+
+Input parameters:
+takes 1 number, n (int)
+
+returns:
+int
+
+example:
+n = 5
+output is 120
+'''
     if n == 1:  
            
         return n  
@@ -20,7 +58,20 @@ def recur_factorial(n):
 
 
 def recur_summation(n):
-    
+''' 
+Description of function:
+This function finds the summation of a number
+
+Input parameters:
+takes 1 number, n (int)
+
+returns:
+int
+
+example:
+n = 4
+output is 10
+'''
     if n == 0:
         return n
     
@@ -29,7 +80,21 @@ def recur_summation(n):
 
 
 def recur_powers(n, a):
-   
+''' 
+Description of function:
+This function puts a base number to an exponent
+
+Input parameters:
+takes 2 numbers, n (int), a (int)
+
+returns:
+int
+
+example:
+n = 3
+a = 2
+output is 9
+'''   
     if a == 1:
         return n
     
@@ -41,7 +106,20 @@ def recur_powers(n, a):
         
 
 def recur_fibonacci(n):
-    
+''' 
+Description of function:
+This function finds the nth term in the fibonacci sequence
+
+Input parameters:
+takes 1 number, n (int)
+
+returns:
+int
+
+example:
+n = 5
+output is 3
+'''
     if n <= 1:
         return n
     
@@ -51,6 +129,29 @@ def recur_fibonacci(n):
     else:
         return (recur_fibonacci(n-1) + recur_fibonacci(n-2))
 
+
+def recur_GCD(x, y):
+''' 
+Description of function:
+This function finds the sum of the digits of a number. 
+
+Input parameters:
+takes 1 number, n (int)
+
+returns:
+int
+
+example:
+n = 33
+output is 6 
+''' 
+    if y <= x and x % y == 0: 
+        
+        return y
+    
+    else:
+        return recur_GCD(y, x % y)
+    
 def recur_euclid(x,y):
 
     if y <= x and x % y == 0:
@@ -67,9 +168,42 @@ def recur_product(a,b):
     elif b == 0:
         return 0
        
+    
+def recur_compound_interest_balance(p, r, t):
+    if t == 0:
+        return p
+    
+    elif t > 0:
+        return ((1 + r) * recur_compound_interest_balance(p,r,t-1))
+
+def recur_sum_in_range(x, y):
+    if x == y : 
+        return y 
+    
+    else :
+        return y + recur_sum_in_range(x, (y-1))
+    
+    
+def reverse(the_list):
+    
+    temp = ""
+    if len(the_list) == 0:
+        return 
+    
+    else :
+        pos = len(the_list) - 1
+        
+        token = the_list.pop(pos)
+        temp = temp + token
+    
+        print(temp, end='')
+        
+        return reverse(the_list)
+
+
 def main():
     
-    which_math = input('What function do you want to use? \n Enter a 1 to find the sum of digits, enter A 2 to find facotrial, enter 3 to find summation, enter 4 for powers, enter 5 for fibonacci')
+    which_math = input('What function do you want to use? \n Enter a 1 to find the sum of digits, \n enter A 2 to find facotrial, \n enter 3 to find summation, \n enter 4 for powers, \n enter 5 for fibonacci, \n enter 6 to find the greatest common divisor \n enter 7 to find your compound interest balance. \n enter 8 for product of two numbers \n Enter 9 for the sum of numbers in a range. \n enter 10 to reverse the digits of a number')
     
     which_math = int(which_math)
     
@@ -165,15 +299,32 @@ def main():
         else: 
             print('the', fib_number,' term is',  recur_fibonacci(fib_number), 'in the fibonacci sequence.')
             
-        
+            
+            
     elif which_math == 6:
-        x = input('What is the first number of the pair? ')
-        x = int(x)
-
-        y = input('What is the second number of the pair? ')
+        x = input('What is the first number?')
+        
+        x= int(x)
+        
+        y = input('What is the second number?')
+        
         y = int(y)
-
-        print(recur_euclid(x,y))
+        
+        print('The greatest common divisor for your two numbers is ',recur_GCD(x, y))
+        
+    elif which_math == 7:
+       
+        principle = input('What is your principle amount?')
+        principle= int(principle)
+        
+        rate = input('What is the rate?')
+        rate = int(rate)
+        
+        time = input('How many years?')
+        time = int(time)
+        
+        print('Your compound interest balance is', recur_compound_interest_balance(principle, rate, time))
+        
 
     elif which_math == 8:
 
@@ -185,6 +336,33 @@ def main():
 
         print(recur_product(a,b))
             
+            
+    elif which_math == 9:
+        x= input('What number do you want to start on?')
+        x = int(x)
+        
+        y = input('What number would you like to end on?')
+        y = int(y)
+        
+        if x <0:
+            print('This program is only for positive numbers')
+            
+        elif y <0:
+            print('This program is only for positive numbers')
+            
+        else: 
+            print('The sum of numbers in your range of', x, '-', y, 'is', recur_sum_in_range(x, y))
+            
+    elif which_math == 10:
+        num = input('What number would you like to reverse?')
+        print("Your number reversed is:")
+        reverse(list(num))
+   
+        
+        
        
+
+            
+        
 if __name__ == '__main__':
     main()
