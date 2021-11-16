@@ -173,6 +173,20 @@ def recur_product(a,b):
         return 0
        
 def recur_sum_in_range(x, y):
+''' 
+Description of function:
+This function finds the sum of numbers in a certain range
+
+Input parameters:
+takes 2 numbers, x, y (int)
+
+returns:
+int
+
+example:
+x = 4, y = 8
+output is 30
+'''
     if x == y : 
         return y 
     
@@ -181,7 +195,20 @@ def recur_sum_in_range(x, y):
     
     
 def reverse(the_list):
-    
+''' 
+Description of function:
+This function reverses the digits of a number that is passed through.
+
+Input parameters:
+takes 1 number, the_list and makes it a list 
+
+returns:
+list, str
+
+example:
+the_list = 1234
+output is 4321
+'''
     temp = ""
     if len(the_list) == 0:
         return 
